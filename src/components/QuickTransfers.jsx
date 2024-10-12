@@ -27,14 +27,13 @@ const data = [
 
 const QuickTransfers = () => {
   return (
-    <>
-      <div>
-        <H1 h1={"Quick Transfers"} />
-      </div>
+    <div>
+     
 
-      <div className="rounded-3xl w-fit p-5 mt-5 shadow-lg">
-        <div className="flex justify-between ">
-          <div className="grid grid-cols-3 gap-5">
+      <div className="bg-white p-5 shadow-md rounded-lg w-full h-[250px] mt-5">
+
+        <div className="flex justify-between mt-5 ">
+          <div className="grid grid-cols-3 gap-8">
             {data.map((data) => (
               <TransferCard
                 key={data.index}
@@ -50,24 +49,24 @@ const QuickTransfers = () => {
           </span>
         </div>
 
-        <div className="flex  gap-6 items-center mt-5 mb-5">
+        <div className="flex justify-center gap-4 items-center  mt-5 mb-6">
           <label className="text-sm text-nowrap">Write Amount</label>
-          <div className="flex relative">
+          <div className="flex relative ">
             <input
               type="text"
               id="amount"
               placeholder="$"
-              className="outline-none text-[#718EBF] p-2 bg-[#EDF1F7] rounded-3xl "
+              className="outline-none text-[#718EBF] w-[100%] p-2 bg-[#EDF1F7] rounded-3xl "
             />
             <span className="">
-              <button className="px-4 flex items-center gap-2 text-white  bg-[#1814F3]  p-2  rounded-3xl absolute right-0">
+              <button className="px-4 flex items-center gap-2 text-white  bg-[#1814F3]  p-2 rounded-3xl absolute right-0">
                 Send <LiaTelegramPlane />
               </button>
             </span>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

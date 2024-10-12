@@ -1,27 +1,29 @@
 import React from "react";
-import H1 from "../../ui/H1";
 
-
-const Card = ( {h1, h2, Amount, url1, Name, Date, url2, topRad, btmRad, border, backgroundColor, textColor}) => {
+const Card = ({
+  Amount,
+  url1,
+  Name,
+  Date,
+  url2,
+  topRad,
+  btmRad,
+  border,
+  backgroundColor,
+  textColor,
+}) => {
   return (
     <div>
-      <span className="flex justify-between items-center mb-3 text-[#343C6A] font-bold">
-        <H1
-        h1={h1} 
-        />
-        <h1 className="text-[1.25rem] "> {h2} </h1>
-      </span>
-
-       <div
+      <div
         style={{
           backgroundColor: backgroundColor,
           textColor: textColor,
           backgroundImage: `linear-gradient(to bottom, ${topRad}, ${btmRad})`,
         }}
-        className="p-5 rounded-3xl shadow-lg"
+        className="shadow-sm rounded-2xl p-4 h-[210px] "
       >
-        <div className="flex justify-between ">
-          <span className="text-white">
+        <div className="flex justify-between">
+          <span className="text-[#EDF0F7] font-bold">
             <p>Balance</p>
             <h2 className=" tracking-wider">$ {Amount}</h2>
           </span>
@@ -34,9 +36,7 @@ const Card = ( {h1, h2, Amount, url1, Name, Date, url2, topRad, btmRad, border, 
         <div className="flex justify-between  mt-5">
           <span>
             <p className="text-gray-300 text-sm ">CARD HOLDER</p>
-            <h2 className="font-semibold  text-gray-200">
-              {Name}
-            </h2>
+            <h2 className="font-semibold  text-gray-200">{Name}</h2>
           </span>
 
           <span>

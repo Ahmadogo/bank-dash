@@ -23,7 +23,7 @@ const balanceData = [
   },
   {
     month: "Sep",
-    balance: 120,
+    balance: 100,
   },
   {
     month: "Oct",
@@ -46,26 +46,25 @@ const balanceData = [
 const BalanceHistory = () => {
   return (
     <div>
-    <div>
-      <H1
-      h1={'Balance History'}
-      />
-    </div>
-      <div className="bg-white pr-3 pt-5 shadow-lg rounded-3xl mt-5">
-        <ResponsiveContainer width="100%" height={300}>
+      
+      <div className="bg-white p-3 shadow-md rounded-lg h-[250px] mt-5">
+        <ResponsiveContainer width="100%">
           <AreaChart data={balanceData}>
+            
             {/* <LineChart data={balanceData}> */}
             <XAxis dataKey="month" />
-            <YAxis domain={[0, 800]} ticks={[0, 200, 400, 600, 800]} />
-            <CartesianGrid strokeDasharray="3 3" stroke="#999" />
+            <YAxis domain={[0, 800]}  />
+            <CartesianGrid strokeDasharray="5 5" stroke="#999" />
             <Tooltip />
 
             <Area
               type="monotone"
               dataKey="balance"
-              fill="rgba(0,0,0,0.2)"
+              fill="#D1E6FF"
               stroke="#1814F3"
               strokeWidth={3}
+              fillOpacity={1}
+              
             />
             <Line
               dataKey="balance"

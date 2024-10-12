@@ -28,11 +28,12 @@ import BankDashLogo from "../assets/svg/bankDash-logo.svg";
 import NavSettingIcon from "../assets/svg/navSetting-icon.svg";
 import NavBellIcon from "../assets/svg/navBell-icon.svg";
 import NavUserIcon from "../assets/svg/navUser-icon.svg";
+import PagesTitle from "../components/PageTitle";
 
 const navigation = [
   {
     name: "Dashboard",
-    href: "/dashboard",
+    href: "/",
     src: HomeIcon,
   },
 
@@ -153,8 +154,8 @@ export default function GenLayOut() {
                               to={item.href}
                               className={classNames(
                                 location.pathname.startsWith(item.href)
-                                  ? "text-[#2D60FF] border-l-4 border-[#2D60FF] pl-3" 
-                                  : "text-[#B1B1B1] hover:text-[#2D60FF] pl-3", 
+                                  ? "text-[#2D60FF] border-l-4 border-[#2D60FF] pl-3"
+                                  : "text-[#B1B1B1] hover:text-[#2D60FF] pl-3",
                                 "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 transition-colors duration-300"
                               )}
                             >
@@ -206,8 +207,8 @@ export default function GenLayOut() {
                           to={item.href}
                           className={classNames(
                             location.pathname.startsWith(item.href)
-                              ? "text-[#2D60FF] border-l-4 border-[#2D60FF] pl-5" 
-                              : "text-[#B1B1B1] hover:text-[#2D60FF] pl-3", 
+                              ? "text-[#2D60FF] border-l-4 border-[#2D60FF] pl-5"
+                              : "text-[#B1B1B1] hover:text-[#2D60FF] pl-3",
                             "group flex gap-x-1 rounded-md py-[.625rem] text-sm font-semibold leading-6 transition-colors duration-300"
                           )}
                         >
@@ -235,9 +236,7 @@ export default function GenLayOut() {
           </div>
         </div>
 
-
-
-                        {/* Top Nav  */}
+        {/* Top Nav  */}
 
         <div className="lg:pl-[230px]">
           <div className="sticky  top-0 z-40 flex h-[4.6875rem] shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
@@ -258,16 +257,14 @@ export default function GenLayOut() {
 
             <div className="flex flex-1 items-center justify-between  lg:gap-x-6">
               <div>
-                <h1 className="text-[1.5625rem] font-bold text-[#343C6A]">
-                  Overview
-                </h1>
+                <PagesTitle />
               </div>
 
               <div className="flex items-center gap-x-4 lg:gap-x-6">
                 <form
                   action="#"
                   method="GET"
-                  className="relative flex px-3 p-2 ring-1 ring-gray-50 bg-[#F5F7FA] rounded-2xl  "
+                  className="relative hidden md:flex px-3 p-2 ring-1 ring-gray-50 bg-[#F5F7FA] rounded-2xl  "
                 >
                   <div className="flex   ">
                     <MagnifyingGlassIcon
@@ -288,16 +285,16 @@ export default function GenLayOut() {
                   <img
                     src={NavSettingIcon}
                     alt="settings icon"
-                    className="w-10"
+                    className="w-10 hidden md:flex"
                   />
                 </Link>
 
                 <Link to={"/notifications"}>
-                  <img 
-                  src={NavBellIcon} 
-                  alt="Bell icon"
-                  className="w-10"
-                   />
+                  <img
+                    src={NavBellIcon}
+                    alt="Bell icon"
+                    className="w-10 hidden md:flex"
+                  />
                 </Link>
 
                 <Menu as="div" className="relative">
@@ -327,8 +324,8 @@ export default function GenLayOut() {
             </div>
           </div>
 
-          <main className="py-5">
-            <div className="px-4 sm:px-6 lg:px-8">
+          <main className=" bg-gray-100 min-h-screen py-5">
+            <div className=" px-4 sm:px-6 lg:px-8">
               <Outlet />
             </div>
           </main>

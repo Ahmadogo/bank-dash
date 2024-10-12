@@ -11,42 +11,41 @@ const Details = [
     url: CardIcon,
     h1: "Deposit from my Card",
     date: "28 January 2021",
-    balance: "-$850"
+    balance: 850,
+    type: "debit"
   },
   {
     id: 2,
     url: Paypal,
     h1: "Deposit Paypal",
     date: "25 January 2021",
-    balance1: "+$2,500"
+    balance: 2500,
+    type: "credit"
   },
   {
     id: 3,
     url: Jemi,
     h1: "Jemi Wilson",
     date: "21 January 2021",
-    balance1: "+$5,400"
-  }
+    balance: 5400,
+    type: 'credit'
+  },
 ];
 
-const Transactions = () => {
+const MyTransactions = () => {
   return (
     <div>
-      <div >
-        <H1
-        h1={"My Transactions"}
-        />
-      </div>
-    
-      <div className="shadow-lg p-4 rounded-3xl">
+      <H1 h1={"My Transactions"} />
+
+      <div className="shadow-lg bg-white p-4 rounded-lg h-[210px] ">
         {Details.map((detail) => (
           <TransactionSlide
             key={detail.id}
             url={detail.url}
             h1={detail.h1}
             date={detail.date}
-            balance={detail.balance}
-            balance1={detail.balance1}
+            balance={detail.balance.toLocaleString()}
+            type={detail.type}
           />
         ))}
       </div>
@@ -54,4 +53,4 @@ const Transactions = () => {
   );
 };
 
-export default Transactions;
+export default MyTransactions;

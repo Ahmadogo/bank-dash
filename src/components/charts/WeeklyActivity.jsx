@@ -46,12 +46,10 @@ const data = [
 
 const WeeklyActivities = () => (
   <>
-    <div>
-      <H1 h1={"Weekly Activity"} />
-    </div>
+    
     <div
-      className="bg-white pr-3 pt-5 shadow-lg rounded-3xl mt-5"
-      style={{ width: "100%", height: 300 }}
+      className="bg-white p-2 shadow-md rounded-lg h-[310px] mt-5"
+      style={{ width: "100%" }}
     >
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} barSize={10}>

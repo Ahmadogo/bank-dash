@@ -1,70 +1,83 @@
 import React from "react";
-import { Pie } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import ChartDataLabels from "chartjs-plugin-datalabels";
 import H1 from "../../ui/H1";
-import { ResponsiveContainer } from "recharts";
+import {
+  PieChart,
+  Pie,
+  Tooltip,
+  Cell,
+  Sector,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
-ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
+const data = [
+  {
+    name: "Entertainment",
+    value: 30,
+  },
+  {
+    name: "Bill Expense",
+    value: 15,
+  },
+  {
+    name: "Investments",
+    value: 20,
+  },
+  {
+    name: "others",
+    value: 35,
+  },
+];
 
-const ExpenseStatistics = () => {
-  const data = {
-    labels: ["Entertainment", "Bill Expense", "Investment", "Others"],
-    datasets: [
-      {
-        label: "Expenses Distribution",
-        data: [30, 15, 20, 35], // Data corresponding to each category
-        backgroundColor: [
-          "#343C6A", // Entertainment
-          "#FC7900", // Bill Expense
-          "#FA00FF", // Investment
-          "#1814F3", // Others
-        ],
-        borderWidth: 10,
-      },
-    ],
-  };
+const colors = ["#343C6A", "#FC7900", "#FA00FF", "#1814F3"];
 
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        display: false,
-      },
-      tooltip: {
-        enabled: true,
-      },
-      datalabels: {
-        color: "white",
-
-        anchor: "center",
-        align: "center",
-        formatter: (value, context) => {
-          // Format text in a column with percentage on top and label below
-          const label = context.chart.data.labels[context.dataIndex];
-          const percentage = ((value / 100) * 100).toFixed(0) + "%";
-          return percentage + "\n" + label;
-        },
-        font: {
-          weight: "bold",
-          size: 12,
-        },
-      },
-    },
-  };
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
   return (
+    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
+
+
+const ExpenseStatistics = () => {
+  return (
     <div>
-      <div>
-        <H1 h1={"Expense Statistics"} />
-      </div>
-      <div
-        className="bg-white shadow-lg rounded-3xl mt-5"
-        style={{ width: "100%", height: 300 }}
+      <div className="bg-white p-2 h-[310px] flex justify-center items-center mt-4 shadow-md rounded-lg"
+      style={{ width: "100%"}}
       >
-        <ResponsiveContainer width={"100%"} height={"100%"}>
-          <Pie data={data} options={options} />;
-        </ResponsiveContainer>
+       
+        {/* <ResponsiveContainer width="100%" height="100%"> */}
+          <PieChart width={300} height={400}>
+            <Pie
+              data={data}
+              dataKey='value'
+              cx="50%"
+              cy="50%"
+              innerRadius={false}
+              outerRadius= {false}
+              strokeWidth={10}
+              fill="#8884d8"
+              label={renderCustomizedLabel}
+              // labelPosition = "inner"
+              labelLine ={false}
+            >
+              {data.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={colors[index % colors.length]}
+                />
+              ))}
+            </Pie>
+            {/* <Legend /> */}
+            <Tooltip />
+          </PieChart>
+        {/* </ResponsiveContainer> */}
       </div>
     </div>
   );

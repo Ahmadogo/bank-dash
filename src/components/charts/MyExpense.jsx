@@ -40,11 +40,8 @@ const expenses = [
 const MyExpense = () => {
   return (
     <div>
-      <div>
-        <H1 h1={"My Expenses"} />
-      </div>
-      <div className="bg-white shadow-lg rounded-3xl ">
-        <ResponsiveContainer width="100%" height={220}>
+      <div className="bg-white shadow-md h-[210px] p-2 rounded-lg ">
+        <ResponsiveContainer width="100%" >
           <BarChart data={expenses} barSize={40}>
             <XAxis dataKey="month" />
             {/* <YAxis /> */}
