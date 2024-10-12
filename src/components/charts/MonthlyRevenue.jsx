@@ -14,39 +14,37 @@ import {
 const yearlyBalance = [
   {
     year: "2016",
-    balance: 5000,
+    balance: 3000,
   },
   {
     year: "2017",
-    balance: 25000,
-  },
-  {
-    year: "2018",
-    balance: 15000,
-  },
-  {
-    year: "2019",
     balance: 30000,
   },
   {
-    year: "2020",
+    year: "2018",
     balance: 10000,
   },
   {
-    year: "2021",
-    balance: 20000,
+    year: "2019",
+    balance: 25000,
   },
+  {
+    year: "2020",
+    balance: 8000,
+  },
+ 
 ];
 
-const YearlyInvestment = () => {
+const MonthlyRevenue = () => {
   return (
     <div className="bg-white p-3 shadow-md rounded-xl h-[250px] mt-5">
       <ResponsiveContainer width="100%">
         <LineChart data={yearlyBalance}>
           <Line 
           dataKey="balance"
+          type= "monotone"
         
-          stroke="#FCAA0B"
+          stroke="#16DBCC"
           strokeWidth={3}
            />
           <XAxis dataKey="year" />
@@ -63,4 +61,4 @@ const YearlyInvestment = () => {
   );
 };
 
-export default YearlyInvestment;
+export default MonthlyRevenue;

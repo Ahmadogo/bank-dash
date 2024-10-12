@@ -66,12 +66,12 @@ const BalanceHistory = () => {
               fillOpacity={1}
               
             />
-            <Line
+            {/* <Line
               dataKey="balance"
               type="monotone"
               stroke="#1814F3"
               strokeWidth={3}
-            />
+            /> */}
             {/* </LineChart> */}
           </AreaChart>
         </ResponsiveContainer>

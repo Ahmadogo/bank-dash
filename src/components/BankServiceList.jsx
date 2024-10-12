@@ -15,12 +15,12 @@ const BankServiceList = ({
 }) => {
   return (
     <div>
-      <div className="bg-white rounded-3xl mt-5 p-5 flex justify-between items-center">
-        <div className="flex gap-5 items-center ">
+      <div className="bg-white rounded-xl mt-3 p-3 grid grid-cols-2  sm:grid-cols-5  gap-16 items-center">
+        <div className=" flex gap-3 items-center ">
           <img src={url1} />
           <span>
-            <h1 className="text-[#232323] font-semibold text-lg">{headCol1}</h1>
-            <p className="text-[#718EBF] text-md">{paraCol1}</p>
+            <h1 className="text-[#232323] font-semibold text-nowrap ">{headCol1}</h1>
+            <p className="text-[#718EBF] text-nowrap">{paraCol1}</p>
           </span>
         </div>
 
@@ -38,7 +38,7 @@ const BankServiceList = ({
           <h1 className="text-[#232323] font-semibold text-md">{headCol4}</h1>
           <p className="text-[#718EBF] text-sm">{paraCol4}</p>
         </span>
-       <Btn/>
+       <Btn content={"View Details"}/>
       </div>
     </div>
   );
