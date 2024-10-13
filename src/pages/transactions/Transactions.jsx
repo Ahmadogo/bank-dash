@@ -11,8 +11,20 @@ import { recentTransactions } from "../../pages/transactions/Data";
 import Pagination from "../../components/Pagination";
 import ActiveTab from "../../components/ActiveTab";
 import H1 from "../../ui/H1";
+import { useState } from "react";
 
 const Transactions = () => {
+  const [selectedTab, setSelectedTab] = useState("All Transactions");
+
+  const tabs = [
+    { name: 'All Transactions' },
+    { name: 'Income' },
+    { name: 'Expenses' },
+  ];
+
+  const handleTabChange = (tabName) => {
+    setSelectedTab(tabName);
+  };
   return (
     <div>
       <div className="grid grid-cols-1 items-center sm:grid-cols-3 gap-5">
@@ -53,7 +65,11 @@ const Transactions = () => {
       <div className="mt-10">
         <H1 h1={"Recent Transactions"} />
         <span>
-          <ActiveTab />
+          <ActiveTab
+            tabs={tabs}
+            selectedTab={selectedTab}
+            onTabChange={handleTabChange}
+          />
           <RecentTransaction />
           <Pagination />
         </span>

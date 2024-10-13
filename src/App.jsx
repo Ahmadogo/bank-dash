@@ -7,9 +7,10 @@ import Services from "./pages/Services";
 import Settings from "./pages/Settings";
 import Previlages from "./pages/Previlages";
 import Dashboard from "./pages/Dashboard";
-import CreditCards from "./pages/CreditCards";
+import CreditCards from "./pages/creditCard/CreditCards";
 import Transactions from "./pages/transactions/Transactions";
 import Investments from "./pages/investments/Investments";
+
 
 function App() {
   return (
