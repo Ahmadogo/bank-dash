@@ -24,7 +24,7 @@ const PagesTitle = () => {
   };
 
   return (
-    <h1 className="text-[1.5625rem] font-bold text-[#343C6A]">{capitalizeWords(pageTitle)}</h1>
+    <h1 className="text-lg font-semibold text-[#343C6A]">{capitalizeWords(pageTitle)}</h1>
   );
 };
 

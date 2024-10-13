@@ -1,14 +1,14 @@
 import React from "react";
-import Paypal from "../assets/svg/paypal-icon.svg";
-import Jemi from "../assets/svg/jemi-wilson-icon.svg";
-import CardIcon from "../assets/svg/smallCard-icon.svg";
+import { PiCardsLight } from "react-icons/pi";
+import { FaPaypal } from "react-icons/fa"; 
+import { FaUserCircle } from "react-icons/fa"; 
 import TransactionSlide from "../ui/TransactionSlide";
 import H1 from "../ui/H1";
 
 const Details = [
   {
     id: 1,
-    url: CardIcon,
+    url: <PiCardsLight className="text-[#FFBB38] bg-[#FFF5D9]  " />,
     h1: "Deposit from my Card",
     date: "28 January 2021",
     balance: 850,
@@ -16,7 +16,7 @@ const Details = [
   },
   {
     id: 2,
-    url: Paypal,
+    url: <FaPaypal className="text-purple-500 w-6 h-6" />, 
     h1: "Deposit Paypal",
     date: "25 January 2021",
     balance: 2500,
@@ -24,7 +24,7 @@ const Details = [
   },
   {
     id: 3,
-    url: Jemi,
+    url: <FaUserCircle className="text-green-500 w-6 h-6" />, 
     h1: "Jemi Wilson",
     date: "21 January 2021",
     balance: 5400,
@@ -37,7 +37,7 @@ const MyTransactions = () => {
     <div>
       <H1 h1={"My Transactions"} />
 
-      <div className="shadow-lg bg-white p-4 rounded-lg h-[210px] ">
+      <div className="shadow-lg bg-white p-4 rounded-lg h-[210px]">
         {Details.map((detail) => (
           <TransactionSlide
             key={detail.id}

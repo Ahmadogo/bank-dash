@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import {
   Dialog,
@@ -15,18 +16,17 @@ import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
-import HomeIcon from "../assets/svg/dashboard-icon.svg";
-import TransactionIcon from "../assets/svg/transaction-icon.svg";
-import AccountIcon from "../assets/svg/account-icon.svg";
-import InvestmentIcon from "../assets/svg/investment-icon.svg";
-import CreditCardIcon from "../assets/svg/creditCard-icon.svg";
-import LoanIcon from "../assets/svg/loan-icon.svg";
-import ServiceIcon from "../assets/svg/services-icon.svg";
-import PrevilageIcon from "../assets/svg/previlage-icon.svg";
-import SettingIcon from "../assets/svg/settings-icon.svg";
+import { TiHome } from "react-icons/ti";
+import { IoSettingsOutline } from "react-icons/io5";
+import { VscBellDot } from "react-icons/vsc";
+import { TbDeviceIpadDollar } from "react-icons/tb";
+import { FaUser } from "react-icons/fa";
+import { GiNetworkBars } from "react-icons/gi";
+import { FaCreditCard } from "react-icons/fa6";
+import { FaHandHoldingDollar } from "react-icons/fa6";
+import { FaTools } from "react-icons/fa";
+import { RiLightbulbFlashLine } from "react-icons/ri";
 import BankDashLogo from "../assets/svg/bankDash-logo.svg";
-import NavSettingIcon from "../assets/svg/navSetting-icon.svg";
-import NavBellIcon from "../assets/svg/navBell-icon.svg";
 import NavUserIcon from "../assets/svg/navUser-icon.svg";
 import PagesTitle from "../components/PageTitle";
 
@@ -34,51 +34,51 @@ const navigation = [
   {
     name: "Dashboard",
     href: "/",
-    src: HomeIcon,
+    src: <TiHome />,
   },
 
   {
     name: "Transactions",
     href: "/transactions",
-    src: TransactionIcon,
+    src: <TbDeviceIpadDollar />,
   },
 
   {
     name: "Accounts",
     href: "/accounts",
-    src: AccountIcon,
+    src: <FaUser />,
   },
   {
     name: "Investments",
     href: "/investments",
-    src: InvestmentIcon,
+    src: <GiNetworkBars />,
   },
   {
     name: "Credit Cards",
     href: "/credit-card",
-    src: CreditCardIcon,
+    src: <FaCreditCard />,
   },
 
   {
     name: "Loans",
     href: "/loans",
-    src: LoanIcon,
+    src: <FaHandHoldingDollar />,
   },
 
   {
     name: "Services",
     href: "/services",
-    src: ServiceIcon,
+    src: <FaTools />,
   },
   {
     name: "My Previlages",
     href: "/previlages",
-    src: PrevilageIcon,
+    src: <RiLightbulbFlashLine />,
   },
   {
     name: "Setting",
     href: "/settings",
-    src: SettingIcon,
+    src: <IoSettingsOutline />,
   },
 ];
 
@@ -145,41 +145,47 @@ export default function GenLayOut() {
                 </div>
 
                 <nav className="flex flex-1 flex-col">
-                  <ul role="list" className="flex flex-1 flex-col gap-y-7">
-                    <li>
-                      <ul role="list" className="-mx-2 space-y-1 relative">
-                        {navigation.map((item) => (
-                          <li key={item.name} className="relative">
-                            <Link
-                              to={item.href}
+              <ul role="list" className="flex flex-1 flex-col gap-y-7">
+                <li>
+                  <ul role="list" className="-mx-2 space-y-1 relative">
+                    {navigation.map((item) => (
+                      <li key={item.name} className="relative">
+                        <Link
+                          to={item.href}
+                          className={classNames(
+                            location.pathname === item.href ||
+                              (item.href !== "/" &&
+                                location.pathname.startsWith(item.href))
+                              ? "text-[#2D60FF] border-l-8 border-[#2D60FF] pl-3"
+                              : "text-[#B1B1B1] hover:text-[#2D60FF] pl-3",
+                            "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 transition-colors duration-300"
+                          )}
+                        >
+                          <div className="flex gap-5 mt-2 items-center">
+                            <span
+                              aria-hidden="true"
                               className={classNames(
-                                location.pathname.startsWith(item.href)
-                                  ? "text-[#2D60FF] border-l-4 border-[#2D60FF] pl-3"
-                                  : "text-[#B1B1B1] hover:text-[#2D60FF] pl-3",
-                                "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 transition-colors duration-300"
+                                location.pathname === item.href ||
+                                  (item.href !== "/" &&
+                                    location.pathname.startsWith(item.href))
+                                  ? "text-[#2D60FF]"
+                                  : "text-[#B1B1B1] hover:text-[#2D60FF]",
+                                "h-5 w-5 shrink-0 transition-colors duration-300 "
                               )}
                             >
-                              <div className="flex gap-5">
-                                <img
-                                  aria-hidden="true"
-                                  className={classNames(
-                                    location.pathname.startsWith(item.href)
-                                      ? "text-[#2D60FF]"
-                                      : "hover:text-[#2D60FF]",
-                                    "h-6 w-6 shrink-0"
-                                  )}
-                                  src={item.src}
-                                  alt={item.alt}
-                                />
-                                {item.name}
-                              </div>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
+                              {React.cloneElement(item.src, {
+                                className: "w-6 h-6 ",
+                              })}
+                            </span>
+                            {item.name}
+                          </div>
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
-                </nav>
+                </li>
+              </ul>
+            </nav>
               </div>
             </DialogPanel>
           </div>
@@ -206,24 +212,30 @@ export default function GenLayOut() {
                         <Link
                           to={item.href}
                           className={classNames(
-                            location.pathname.startsWith(item.href)
-                              ? "text-[#2D60FF] border-l-4 border-[#2D60FF] pl-5"
+                            location.pathname === item.href ||
+                              (item.href !== "/" &&
+                                location.pathname.startsWith(item.href))
+                              ? "text-[#2D60FF] border-l-8 border-[#2D60FF] pl-3"
                               : "text-[#B1B1B1] hover:text-[#2D60FF] pl-3",
-                            "group flex gap-x-1 rounded-md py-[.625rem] text-sm font-semibold leading-6 transition-colors duration-300"
+                            "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 transition-colors duration-300"
                           )}
                         >
-                          <div className="flex gap-5 items-center">
-                            <img
+                          <div className="flex gap-5 mt-2 items-center">
+                            <span
                               aria-hidden="true"
                               className={classNames(
-                                location.pathname.startsWith(item.href)
+                                location.pathname === item.href ||
+                                  (item.href !== "/" &&
+                                    location.pathname.startsWith(item.href))
                                   ? "text-[#2D60FF]"
-                                  : "hover:text-[#2D60FF]",
-                                "h-6 w-6 shrink-0"
+                                  : "text-[#B1B1B1] hover:text-[#2D60FF]",
+                                "h-5 w-5 shrink-0 transition-colors duration-300 "
                               )}
-                              src={item.src}
-                              alt={item.alt}
-                            />
+                            >
+                              {React.cloneElement(item.src, {
+                                className: "w-6 h-6 ",
+                              })}
+                            </span>
                             {item.name}
                           </div>
                         </Link>
@@ -282,19 +294,15 @@ export default function GenLayOut() {
                 </form>
 
                 <Link to={"/settings"}>
-                  <img
-                    src={NavSettingIcon}
-                    alt="settings icon"
-                    className="w-10 hidden md:flex"
-                  />
+                  <span className="p-2 rounded-full hidden md:flex text-[30px] bg-[#F5F7FA] text-[#718EBF]">
+                    <IoSettingsOutline />
+                  </span>
                 </Link>
 
                 <Link to={"/notifications"}>
-                  <img
-                    src={NavBellIcon}
-                    alt="Bell icon"
-                    className="w-10 hidden md:flex"
-                  />
+                  <span className="p-2 rounded-full hidden md:flex text-[30px] text-[#FE5C73] bg-[#F5F7FA]">
+                    <VscBellDot />
+                  </span>
                 </Link>
 
                 <Menu as="div" className="relative">
