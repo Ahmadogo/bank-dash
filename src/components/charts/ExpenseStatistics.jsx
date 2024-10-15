@@ -48,7 +48,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 const ExpenseStatistics = () => {
   return (
     <div>
-      <div className="bg-white p-2 h-[310px] flex justify-center items-center mt-4 shadow-md rounded-lg"
+      <div className="bg-white p-2 h-[310px] flex justify-center  items-center mt-4 shadow-md rounded-lg"
       style={{ width: "100%"}}
       >
        

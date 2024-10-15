@@ -8,27 +8,33 @@ import H1 from "../ui/H1";
 const Details = [
   {
     id: 1,
-    url: <PiCardsLight className="text-[#FFBB38] bg-[#FFF5D9]  " />,
+    url: PiCardsLight,
     h1: "Deposit from my Card",
     date: "28 January 2021",
     balance: 850,
-    type: "debit"
+    type: "debit",
+    iconColor: "#FFBB38",
+    iconBg: "#FFF5D9"
   },
   {
     id: 2,
-    url: <FaPaypal className="text-purple-500 w-6 h-6" />, 
+    url: FaPaypal, 
     h1: "Deposit Paypal",
     date: "25 January 2021",
     balance: 2500,
-    type: "credit"
+    type: "credit",
+    iconColor: "#396AFF",
+    iconBg: "#E7EDFF"
   },
   {
     id: 3,
-    url: <FaUserCircle className="text-green-500 w-6 h-6" />, 
+    url: FaUserCircle, 
     h1: "Jemi Wilson",
     date: "21 January 2021",
     balance: 5400,
-    type: 'credit'
+    type: 'credit',
+    iconColor: "#16DBCC",
+    iconBg: "#DCFAF8"
   },
 ];
 
@@ -46,6 +52,8 @@ const MyTransactions = () => {
             date={detail.date}
             balance={detail.balance.toLocaleString()}
             type={detail.type}
+            iconBg={detail.iconBg}
+            iconColor={detail.iconColor}
           />
         ))}
       </div>

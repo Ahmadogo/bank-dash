@@ -3,8 +3,8 @@ import { trendingStock } from "../pages/investments/Data";
 
 const TrendingStock = ({outcome}) => {
   return (
-    <div className="bg-white rounded-lg p-2  shadow-md">
-      <table className="min-w-full">
+    <div className="bg-white rounded-lg p-2 shadow-md">
+      <table className=" p-5 w-full">
         <thead className="border-b">
           <tr>
             <th
@@ -42,10 +42,10 @@ const TrendingStock = ({outcome}) => {
               <td className="whitespace-nowrap py-4 pl-4 pr-3 font-medium  sm:pl-0">${trending.price}</td>
               <td
                 className={`${
-                  outcome === "profit" ? "text-[#16DBAA]" : "text-[#FE5C73]"
+                  trending.outcome === "profit" ? "text-[#16DBAA]" : "text-[#FE5C73]"
                 } className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium  sm:pl-0"`}
               >
-                {outcome === "profit" ? "+" : "-"}
+                {trending.outcome === "profit" ? "+" : "-"}
                 {trending.return}%
               </td>
             </tr>

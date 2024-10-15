@@ -1,12 +1,14 @@
 import React from "react";
 
-const TransactionSlide = ({ url, h1, date, balance, type }) => {
+const TransactionSlide = ({ url: Icon, h1, date, balance, type, iconBg, iconColor}) => {
   return (
     <div>
       <div className="flex justify-between p-1 items-center">
         <div className="flex gap-5 items-center"> 
-          <span className="text-[30px]  rounded-full cursor-pointer flex items-center justify-center">
-            {url} 
+          <span className="text-[30px] rounded-full cursor-pointer p-2 flex items-center justify-center"
+           style={{ backgroundColor: iconBg, color: iconColor }}
+          >
+            <Icon className="text-[35px]"/> 
           </span>
           <span className="text-nowrap">
             <h1 className="font-semibold ">{h1}</h1>

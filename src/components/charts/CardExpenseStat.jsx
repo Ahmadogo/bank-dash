@@ -17,12 +17,12 @@ const angles = [
 ];
 
 const CardExpenseStat = () => (
-  <div className="bg-white rounded-lg shadow-md flex justify-center items-center">
-    <PieChart width={400} height={250}>
+  <div className="bg-white rounded-lg shadow-md w-full p-7 flex justify-center items-center">
+    <PieChart width={280} height={250}>
       <Pie
         data={data}
-        cx={200}
-        cy={90}
+        cx={150}
+        cy={100}
         innerRadius={50}
         outerRadius={100}
         startAngle={220}
@@ -39,7 +39,7 @@ const CardExpenseStat = () => (
           />
         ))}
       </Pie>
-      <Legend verticalAlign="bottom" height={50} width={300}/>
+      <Legend verticalAlign="bottom" height={30} width={300}/>
       <Tooltip/>
     </PieChart>
   </div>

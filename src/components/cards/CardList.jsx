@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const CardList = ({
-  icon,
+  icon: Icon,
   link,
   headCol1,
   headCol2,
@@ -12,11 +12,17 @@ const CardList = ({
   paraCol2,
   paraCol3,
   paraCol4,
+  iconBg,
+  iconColor,
 }) => {
   return (
     <div className="bg-white rounded-lg mt-3 p-[13px] flex justify-between items-center">
       <div className=" flex gap-3 items-center ">
-        <img src={icon} />
+        <span 
+         className="text-[30px] p-5 rounded-full cursor-pointer"
+        style={{ backgroundColor: `${iconBg}`, color: `${iconColor}` }}>
+          <Icon />
+        </span>
         <span>
           <h1 className="text-[#232323] font-semibold text-nowrap ">
             {headCol1}

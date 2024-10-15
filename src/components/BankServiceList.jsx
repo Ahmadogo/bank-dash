@@ -1,9 +1,8 @@
 import React from "react";
-import Btn from "../ui/Btn"
-
+import Btn from "../ui/Btn";
 
 const BankServiceList = ({
-  url1,
+  url1: Icon,
   headCol1,
   headCol2,
   headCol3,
@@ -12,16 +11,27 @@ const BankServiceList = ({
   paraCol2,
   paraCol3,
   paraCol4,
-
-  
+  iconBg,
+  iconColor,
 }) => {
   return (
     <div>
       <div className="bg-white rounded-xl mt-3 p-3 flex justify-between items-center">
         <div className=" flex gap-3 items-center ">
-          <img src={url1} />
+          <span
+            className="p-2 text-[35px] rounded-2xl cursor-pointer"
+            style={{
+              backgroundColor: `${iconBg}`,
+              color: `${iconColor}`,
+            }}
+          >
+            <Icon />
+          </span>
+
           <span>
-            <h1 className="text-[#232323] font-semibold text-nowrap ">{headCol1}</h1>
+            <h1 className="text-[#232323] font-semibold text-nowrap ">
+              {headCol1}
+            </h1>
             <p className="text-[#718EBF] text-nowrap">{paraCol1}</p>
           </span>
         </div>
@@ -41,8 +51,7 @@ const BankServiceList = ({
           <p className="text-[#718EBF] text-sm">{paraCol4}</p>
         </span>
 
-       
-       <Btn content={"View Details"}/>
+        <Btn content={"View Details"} />
       </div>
     </div>
   );

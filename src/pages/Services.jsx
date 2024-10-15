@@ -14,6 +14,8 @@ const Services = () => {
             url={service.url}
             title2={service.title2}
             content={service.content}
+            iconColor={service.iconColor}
+            iconBg={service.iconBg}
           />
         ))}
       </div>
@@ -36,6 +38,8 @@ const Services = () => {
               paraCol3={service.paraCol3}
               paraCol4={service.paraCol4}
               btn={service.btn}
+              iconBg={service.iconBg}
+              iconColor={service.iconColor}
             />
           ))}
         </div>

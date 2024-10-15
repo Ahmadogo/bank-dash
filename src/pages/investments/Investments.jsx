@@ -21,6 +21,8 @@ const Investments = () => {
             title={category.title}
             url={category.url}
             amount={category.amount.toLocaleString()}
+            iconBg={category.iconBg}
+            iconColor={category.iconColor}
           />
         ))}
       </div>
@@ -36,13 +38,13 @@ const Investments = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-        <div className="col-span-2">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <div className="sm:col-span-2 col-span-1">
           <H1 h1={"My Investments"} />
           {myInvestmentsData.map((investment) => (
             <MyInvestments
               key={investment.id}
-              icon={investment.icon}
+              url={investment.url}
               title={investment.title}
               content1={investment.content1}
               amount={investment.amount.toLocaleString()}
@@ -50,13 +52,14 @@ const Investments = () => {
               percent={investment.percent}
               content3={investment.content3}
               type={investment.type}
+              iconBg={investment.iconBg}
+              iconColor={investment.iconColor}
             />
           ))}
         </div>
-
-        <div className="">
+        <div className="sm:col-span-1 col-span-1">
           <H1 h1={"Trending Stock"} />
-          <TrendingStock/>
+          <TrendingStock />
         </div>
       </div>
     </div>

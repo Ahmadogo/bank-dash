@@ -47,7 +47,7 @@ const BalanceHistory = () => {
   return (
     <div>
       
-      <div className="bg-white p-3 shadow-md rounded-lg h-[250px] mt-5">
+      <div className="bg-white p-3 shadow-md rounded-lg w-full h-[250px] mt-5">
         <ResponsiveContainer width="100%">
           <AreaChart data={balanceData}>
             

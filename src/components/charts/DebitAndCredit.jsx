@@ -62,8 +62,8 @@ const DebitAndCredit = () => {
           <XAxis dataKey="day" />
           <Legend verticalAlign="top" align="right" />
           <Tooltip/>
-          <Bar dataKey="Debit" fill="#1A16F3" radius={10} />
-          <Bar dataKey="Credit" fill="#FCAA0B" radius={10} />
+          <Bar dataKey="Debit" fill="#1A16F3" radius={9} />
+          <Bar dataKey="Credit" fill="#FCAA0B" radius={9} />
         </BarChart>
       </ResponsiveContainer>
     </div>

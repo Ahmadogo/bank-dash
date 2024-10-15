@@ -55,8 +55,8 @@ const CreditCards = () => {
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-3 items-center gap-5">
-        <div className="col-span-1">
+      <div className="grid grid-cols-1 sm:grid-cols-3 items-center gap-5">
+        <div className="sm:col-span-1">
           <H1 h1={"Card Expense Statistics"} />
           <CardExpenseStat />
         </div>
@@ -75,6 +75,8 @@ const CreditCards = () => {
               paraCol2={card.paraCol2}
               paraCol3={card.paraCol3}
               paraCol4={card.paraCol4}
+              iconBg={card.iconBg}
+              iconColor={card.iconColor}
             />
           ))}
         </div>
@@ -85,15 +87,17 @@ const CreditCards = () => {
           <H1 h1={"Add New Card"} />
           <AddNewCard />
         </div>
-        <div className="col-span-1">
+        <div className="col-span-1 sm:col-span-1">
           <H1 h1={"Card Settings"} />
-          <div className="bg-white rounded-lg shadow-md p-5 ">
+          <div className="bg-white rounded-lg w-full shadow-md p-5 ">
             {cardSettingsData.map((card) => (
               <CardSettings
                 key={card.id}
                 icon={card.icon}
                 header={card.header}
                 para={card.para}
+                iconBg={card.iconBg}
+                iconColor={card.iconColor}
               />
             ))}
           </div>

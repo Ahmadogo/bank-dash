@@ -54,7 +54,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="col-span-1 mt-5">
+        <div className="  col-span-1 mt-5">
           <div>
             <H1 h1={"Expense Statistics"} />
             <ExpenseStatistics />

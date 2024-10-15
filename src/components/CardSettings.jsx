@@ -1,18 +1,19 @@
 import React from "react";
 
-const CardSettings = ({icon, header, para}) => {
+const CardSettings = ({ icon: Icon, header, para, iconBg, iconColor }) => {
   return (
-    // <div className="bg-white rounded-lg shadow-md p-5 ">
-      <div className="flex gap-5 items-center  p-2">
-        <span className="text-[30px] bg-red-300 p-5 rounded-full cursor-pointer">
-          {icon}
-        </span>
-        <span>
-          <h1 className="text-[#232323] text-lg font-medium">{header}</h1>
-          <p className="text-[#718EBF] text-md"> {para}</p>
-        </span>
-      </div>
-    // </div>
+    <div className="flex gap-5 items-center w-full p-[7px]">
+      <span
+        className="text-[30px] p-3 rounded-full cursor-pointer"
+        style={{ backgroundColor: `${iconBg}`, color: `${iconColor}` }}
+      >
+        <Icon />
+      </span>
+      <span>
+        <h1 className="text-[#232323] text-lg font-medium">{header}</h1>
+        <p className="text-[#718EBF] text-md"> {para}</p>
+      </span>
+    </div>
   );
 };
 

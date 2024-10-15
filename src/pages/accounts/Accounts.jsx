@@ -14,71 +14,11 @@ import Chip from "../../assets/svg/Chip_Card.svg";
 import CardCircles from "../../assets/svg/masterCard-circles.svg";
 import DebitAndCredit from "../../components/charts/DebitAndCredit";
 import Invoices from "../../components/Invoices";
-import { invoiceData } from "../../pages/accounts/Data";
+import { invoiceData ,cardsCategory, transactionsHistory} from "../../pages/accounts/Data";
 
-const cardsCategory = [
-  {
-    // url: <FaSackDollar className="absolute left-2 top-3 sm:left-5 sm:top-5 text-[#FFBB38] text-2xl sm:text-4xl"/>,
-    id: 1,
-    url: Balance,
-    title: "My Balance",
-    amount: 12750,
-  },
-  {
-    // url: <FaHandHoldingDollar className="absolute left-2 top-3 sm:left-5 sm:top-5 text-[#396AFF] text-2xl sm:text-4xl"/>,
-    id: 2,
-    url: Income,
-    title: "Income",
-    amount: 5600,
-  },
-  {
-    // url: <FaFileInvoiceDollar className="absolute left-2 top-3 sm:left-5 sm:top-5 text-[#FF82AC] text-2xl sm:text-4xl"/>,
-    id: 3,
-    url: Expense,
-    title: "Expense",
-    amount: 3460,
-  },
-  {
-    // url: <FaPiggyBank className="absolute left-2 top-3 sm:left-5 sm:top-5 text-[#16DBCC] text-2xl sm:text-4xl"/>,
-    id: 4,
-    url: Piggy,
-    title: "Total Saving",
-    amount: 7920,
-  },
-];
 
-const transactionsHistory = [
-  {
-    url: Sportify,
-    title: "Sportify Subscripton",
-    date: "25 Jan 2021",
-    category: "Shopping",
-    cardNo: "123***",
-    status: "Pending",
-    balance: 150,
-    type: "debit",
-  },
-  {
-    url: Service,
-    title: "Mobile Service",
-    date: "25 Jan 2021",
-    category: "Service",
-    cardNo: "123***",
-    status: "Completed",
-    balance: 340,
-    type: "debit",
-  },
-  {
-    url: Emily,
-    title: "Emilly Wilson",
-    date: "25 Jan 2021",
-    category: "Transfer",
-    cardNo: "123***",
-    status: "Completed",
-    balance: 780,
-    type: "credit",
-  },
-];
+
+
 
 const Accounts = () => {
   return (
@@ -90,12 +30,14 @@ const Accounts = () => {
             url={card.url}
             title={card.title}
             amount={card.amount.toLocaleString()}
+            iconBg={card.iconBg}
+            iconColor={card.iconColor}
           />
         ))}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 items-center ">
-        <div className="col-span-2 mt-5">
+        <div className="col-span-1 sm:col-span-2 mt-5">
           <div>
             <H1 h1={"Last Transaction"} />
           </div>
@@ -112,12 +54,15 @@ const Accounts = () => {
                 status={transaction.status}
                 balance={transaction.balance}
                 type={transaction.type}
+                iconBg={transaction.iconBg}
+                iconColor={transaction.iconColor}
+               
               />
             ))}
           </div>
         </div>
 
-        <div className="col-span-1 mt-5">
+        <div className="col-span-1 sm:col-span-1 mt-5">
           <div className="">
             <H1 h1={"My Card"} />
           </div>
@@ -139,13 +84,13 @@ const Accounts = () => {
       </div>
 
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-3 items-center">
-        <div className="mt-5 col-span-2">
+        <div className="mt-5 col-span-1 sm:col-span-2">
           <H1 h1={"Debit an Credit Overview"} />
           <div>
             <DebitAndCredit />
           </div>
         </div>
-        <div className="  mt-5 sm:col-span-1 ">
+        <div className="  mt-5 col-span-1 sm:col-span-1 ">
           <H1 h1={"Invoices Sent"} />
           <div className="bg-white rounded-lg shadow-lg p-5">
             {invoiceData.map((invoice, index) => (
