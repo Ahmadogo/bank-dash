@@ -23,7 +23,7 @@ const ShortCards = ({
         </div>
 
         <div className=" text-nowrap">
-          <h1 className="text-md text-[#718EBF] ">{title}</h1>
+          <h1 className="text-md text-[#718EBF]">{title}</h1>
           <p className=" font-semibold text-[#232323] ">${amount}</p>
         </div>
 

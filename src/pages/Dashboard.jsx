@@ -46,7 +46,7 @@ const Dashboard = () => {
         <Transactions />
       </div>
 
-      <div className="grid  items-center  grid-cols-1 sm:grid-cols-3  gap-5">
+      <div className="grid  items-center  grid-cols-1 sm:grid-cols-3  sm:gap-5">
         <div className="col-span-2 mt-5">
           <div>
             <H1 h1={"Weekly Activity"} />
@@ -62,7 +62,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-5 items-center">
         <div className="col-span-1 mt-5 ">
           <div>
             <H1 h1={"Quick Transfers"} />
@@ -77,6 +77,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

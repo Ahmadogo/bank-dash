@@ -86,7 +86,7 @@ export const transactionsHistory = [
   {
     id: 1,
     url: FaSackDollar,
-    title: "My Balance",
+    title: "Balance",
     amount: 12750,
     iconColor: "#FFBB38",
     iconBg: "#FFF5D9"
@@ -110,7 +110,7 @@ export const transactionsHistory = [
   {
     id: 4,
     url: FaPiggyBank,
-    title: "Total Saving",
+    title: "Saving",
     amount: 7920,
     iconBg: "#DCFAF8",
     iconColor: "#16DBCC"

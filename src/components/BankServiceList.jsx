@@ -15,7 +15,7 @@ const BankServiceList = ({
   iconColor,
 }) => {
   return (
-    <div>
+    <div >
       <div className="bg-white rounded-xl mt-3 p-3 flex justify-between items-center">
         <div className=" flex gap-3 items-center ">
           <span
