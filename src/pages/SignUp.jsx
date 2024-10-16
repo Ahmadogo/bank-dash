@@ -36,7 +36,7 @@ function CreateAccount() {
     setTimeout(() => {
         navigate("/_");
         setTimeout(() => {
-          navigate("/dashboard");
+          navigate("/");
         }, 2500);
       }, 400);
   };
