@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import CreditCards from "./pages/creditCard/CreditCards";
 import Transactions from "./pages/transactions/Transactions";
 import Investments from "./pages/investments/Investments";
+import NotFound from "./components/NotFound";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/investments" element={<Investments />} />
             <Route path="/transactions" element={<Transactions />} />
           </Route>
+            <Route path="/*" element={<NotFound/>} />
         </Routes>
       </Router>
     </>

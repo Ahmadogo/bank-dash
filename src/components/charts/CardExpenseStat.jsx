@@ -41,6 +41,7 @@ const CardExpenseStat = () => (
       </Pie>
       <Legend verticalAlign="bottom" height={30} width={300}/>
       <Tooltip/>
+      
     </PieChart>
   </div>
 );

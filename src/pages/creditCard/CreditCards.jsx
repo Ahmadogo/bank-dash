@@ -55,7 +55,7 @@ const CreditCards = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 items-center gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-3 items-center sm:gap-5">
         <div className="sm:col-span-1">
           <H1 h1={"Card Expense Statistics"} />
           <CardExpenseStat />
@@ -82,7 +82,7 @@ const CreditCards = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-5">
         <div className="col-span-2">
           <H1 h1={"Add New Card"} />
           <AddNewCard />

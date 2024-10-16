@@ -58,7 +58,7 @@ const ExpenseStatistics = () => {
               data={data}
               dataKey='value'
               cx="50%"
-              cy="50%"
+              cy="60%"
               innerRadius={false}
               outerRadius= {false}
               strokeWidth={10}
@@ -74,7 +74,7 @@ const ExpenseStatistics = () => {
                 />
               ))}
             </Pie>
-            {/* <Legend /> */}
+            <Legend verticalAlign="bottom" height={100} width={300}/>
             <Tooltip />
           </PieChart>
         {/* </ResponsiveContainer> */}

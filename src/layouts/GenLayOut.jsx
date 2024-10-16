@@ -152,6 +152,7 @@ export default function GenLayOut() {
                       <li key={item.name} className="relative">
                         <Link
                           to={item.href}
+                          onClick={() => setSidebarOpen (false)}
                           className={classNames(
                             location.pathname === item.href ||
                               (item.href !== "/" &&

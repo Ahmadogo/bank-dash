@@ -58,9 +58,9 @@ const ActiveLoansOverview = ({no}) => {
               <tbody className="divide-y divide-gray-200">
                 {overViewData.map((overview) => (
                   <tr 
-                  className={`${no === "Total" ? "text-[#FE5C73]" : "text-[#232323]"}`}
+                  
                   key={overview.id}>
-                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-[#232323] sm:pl-0">
+                    <td className={`whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-[#232323] sm:pl-0 ${overview.no === "Total" ? "text-[#FE5C73]" : "text-[#232323]"}`}>
                       {overview.no}
                     </td>
                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-[#232323] sm:pl-0">

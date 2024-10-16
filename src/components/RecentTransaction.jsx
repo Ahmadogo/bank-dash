@@ -84,10 +84,10 @@ const RecentTransaction = ({ action }) => {
                     </td>
                     <td
                       className={`whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium sm:pl-0 ${
-                        action === "debit" ? "text-[#FE5C73]" : "text-[#16DBAA]"
+                        transaction.action === "debit" ? "text-[#FE5C73]" : "text-[#16DBAA]"
                       }`}
                     >
-                      {action === "debit" ? "-" : "+"}$
+                      {transaction.action === "debit" ? "-" : "+"}$
                       {transaction.amount.toLocaleString()}
                     </td>
                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-[#232323] sm:pl-0">
