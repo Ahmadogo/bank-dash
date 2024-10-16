@@ -65,12 +65,12 @@ export const overViewData = [
     interest: 12,
     installment: 900,
   },
-  {
-    no: "Total",
-    loan: 1250000,
-    left: 750000,
-    duration: "",
-    interest: "",
-    installment: 50000,
-  },
+  // {
+  //   no: "Total",
+  //   loan: 1250000,
+  //   left: 750000,
+  //   duration: "",
+  //   interest: "",
+  //   installment: 50000,
+  // },
 ];

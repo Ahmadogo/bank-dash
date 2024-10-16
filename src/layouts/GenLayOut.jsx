@@ -33,7 +33,7 @@ import PagesTitle from "../components/PageTitle";
 const navigation = [
   {
     name: "Dashboard",
-    href: "/",
+    href: "/dashboard",
     src: <TiHome />,
   },
 

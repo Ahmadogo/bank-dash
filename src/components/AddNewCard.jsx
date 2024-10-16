@@ -1,6 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import { cardData as initialCardData} from "../pages/creditCard/Data";
 
 const AddNewCard = () => {
+
+  const [cardData, setCardData] = useState(initialCardData);
+  const [formData, setFormData] = useState({
+    cardType: "",
+    cardNumber: "",
+    nameOnCard: "",
+    expirationDate: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const addCard = () => {
+    const newCard = {
+      id: cardData.length + 1,
+      icon: "FaMoneyCheckDollar", 
+      headCol1: "Card Type",
+      paraCol1: formData.cardType || "Secondary",
+      headCol2: "Bank",
+      paraCol2: "Your Bank", 
+      headCol3: "Card Number",
+      paraCol3: `**** **** ${formData.cardNumber.slice(-4)}`,
+      headCol4: "Card Name",
+      paraCol4: formData.nameOnCard,
+      link: "View Details",
+      iconBg: "#FFE0EB", 
+      iconColor: "#FF82AC", 
+    };
+
+    setCardData([...cardData, newCard]); 
+    setFormData({ cardType: "", cardNumber: "", nameOnCard: "", expirationDate: "" }); 
+  };
+
   return (
     <div className="bg-white rounded-lg p-5 shadow-md ">
       <p className="text-[#718EBF]">
@@ -20,10 +56,12 @@ const AddNewCard = () => {
           </label>
           <div className="mt-2">
             <input
-              defaultValue="Classic"
+              
               id="cardType"
               name="cardType"
               type="text"
+              value={formData.cardType}
+              onChange={handleInputChange}
               placeholder="Classic"
               className=" p-2 block w-full rounded-md border-0 py-1.5 text-[#718EBF] shadow-sm ring-1 ring-[#718EBF] placeholder:text-[#718EBF] disabled:bg-gray-50 disabled:text-gray-500 disabled:ring-gray-200 sm:text-sm sm:leading-6 "
             />
@@ -36,10 +74,12 @@ const AddNewCard = () => {
           </label>
           <div className="mt-2">
             <input
-              //   defaultValue="**** **** ***"
+              
               id="cardNumber"
               name="cardNumber"
               type="text"
+              onChange={handleInputChange}
+              value={formData.cardNumber}
               placeholder="**** **** ****"
               className=" p-2 block w-full rounded-md border-0 py-1.5 text-[#718EBF] shadow-sm ring-1 ring-[#718EBF] placeholder:text-[#718EBF] disabled:bg-gray-50 disabled:text-gray-500 disabled:ring-gray-200 sm:text-sm sm:leading-6 "
             />
@@ -48,7 +88,7 @@ const AddNewCard = () => {
 
         <div>
           <label
-            // htmlFor="nameOnCard"
+            htmlFor="nameOnCard"
             className="block  font-semibold leading-6 text-[#232323]"
           >
             Name On Card
@@ -58,6 +98,8 @@ const AddNewCard = () => {
               id="nameOnCard"
               name="nameOnCard"
               type="text"
+              onChange={handleInputChange}
+              value={formData.nameOnCard}
               placeholder="My Cards"
               className=" p-2 block w-full rounded-md border-0 py-1.5 text-[#718EBF] shadow-sm ring-1 ring-[#718EBF] placeholder:text-[#718EBF] disabled:bg-gray-50 disabled:text-gray-500 disabled:ring-gray-200 sm:text-sm sm:leading-6 "
             />
@@ -70,7 +112,9 @@ const AddNewCard = () => {
             <input
               id="expirationDate"
               name="expirationDate"
-              type="text"
+              type="date"
+              onChange={handleInputChange}
+              value={formData.expirationDate}
               placeholder="25 Jan 2025"
               className=" p-2 block w-full rounded-md border-0 py-1.5 text-[#718EBF] shadow-sm ring-1 ring-[#718EBF] placeholder:text-[#718EBF] disabled:bg-gray-50 disabled:text-gray-500 disabled:ring-gray-200 sm:text-sm sm:leading-6 "
             />
@@ -90,7 +134,9 @@ const AddNewCard = () => {
         </div>
       </div>
 
-      <button className="bg-[#1814F3] text-white font-semibold px-10 cursor-pointer py-3 mt-10 mb-1 rounded-md">
+      <button
+      onClick={addCard}
+      className="bg-[#1814F3] text-white font-semibold px-10 cursor-pointer py-3 mt-10 mb-1 rounded-md">
         Add Card
       </button>
     </div>

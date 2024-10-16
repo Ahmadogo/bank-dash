@@ -12,7 +12,7 @@ const NotFound = () => {
         </h1>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link
-            to={"/"}
+            to={"/dashboard"}
             className="flex gap-2 items-center text-lg font-semibold text-[#343C6A] "
           >
             <IoArrowBackSharp />

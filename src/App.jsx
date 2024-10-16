@@ -10,7 +10,10 @@ import Dashboard from "./pages/Dashboard";
 import CreditCards from "./pages/creditCard/CreditCards";
 import Transactions from "./pages/transactions/Transactions";
 import Investments from "./pages/investments/Investments";
-import NotFound from "./components/NotFound";
+import NotFound from "./pages/NotFound";
+import LogIn from "./pages/LogIn";
+import SignUp from "./pages/SignUp";
+import AccountCreated from "./components/AccountCreated";
 
 
 function App() {
@@ -19,7 +22,7 @@ function App() {
       <Router>
         <Routes>
           <Route element={<GenLayOut />}>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/loans" element={<Loans />} />
             <Route path="/accounts" element={<Accounts />} />
             <Route path="/services" element={<Services />} />
@@ -29,6 +32,9 @@ function App() {
             <Route path="/investments" element={<Investments />} />
             <Route path="/transactions" element={<Transactions />} />
           </Route>
+            <Route path="/sign-up" element={<SignUp/>} />
+            <Route path="/" element={<LogIn/>} />
+            <Route path="/_" element={<AccountCreated/>} />
             <Route path="/*" element={<NotFound/>} />
         </Routes>
       </Router>
